@@ -5,6 +5,32 @@
     const rightCurtain = document.querySelector('.curtain.right');
     const poster = document.querySelector('.poster');
     
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const container = document.querySelector('.carousel-container');
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlide();
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlide();
+});
+
+function updateSlide() {
+    container.style.transform = `translateX(-${currentSlide * 100}%)`;
+}
+
+// 자동 슬라이드 기능 (선택적)
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlide();
+}, 5000);
+
+
+
 
 function updateTimer() {
     const now = new Date();
