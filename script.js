@@ -5,6 +5,28 @@
     const rightCurtain = document.querySelector('.curtain.right');
     const poster = document.querySelector('.poster');
     
+
+function updateTimer() {
+    const now = new Date();
+    const target = new Date("2024-09-19T19:30:00"); // 첫 공연 날짜
+    const diff = target - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+}
+
+setInterval(updateTimer, 1000);
+updateTimer(); // 초기 실행
+
+
+
     setInterval(() => {
         poster.style.transform = 'rotateY(20deg)';
         setTimeout(() => {
@@ -19,7 +41,7 @@
 setTimeout(() => {
     leftCurtain.style.transform = 'translateX(-100%)';
     rightCurtain.style.transform = 'translateX(100%)';
-}, 800);
+}, 500);
 
 
     ticketBtn.addEventListener('click', () => {
