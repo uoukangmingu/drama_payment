@@ -19,7 +19,7 @@
 setTimeout(() => {
     leftCurtain.style.transform = 'translateX(-100%)';
     rightCurtain.style.transform = 'translateX(100%)';
-}, 500);
+}, 800);
 
 
     ticketBtn.addEventListener('click', () => {
