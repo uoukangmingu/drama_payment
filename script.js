@@ -5,19 +5,6 @@
     const rightCurtain = document.querySelector('.curtain.right');
     const poster = document.querySelector('.poster');
     
-donateBtn.addEventListener('click', (e) => {
-    e.preventDefault(); // 기본 동작 방지
-    const popupWidth = 500;
-    const popupHeight = 600;
-    const left = (window.screen.width - popupWidth) / 2;
-    const top = (window.screen.height - popupHeight) / 2;
-    
-    const popup = window.open('', '후원하기', `width=${popupWidth},height=${popupHeight},left=${left},top=${top}`);
-    popup.document.write('<iframe src="https://payapplite.com/l/asfCnZ" width="100%" height="100%" frameborder="0"></iframe>');
-});
-
-
-
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const container = document.querySelector('.carousel-container');
@@ -91,4 +78,11 @@ setTimeout(() => {
         }, 1000);
     });
 
+    donateBtn.addEventListener('click', () => {
+        leftCurtain.style.transform = 'translateX(0)';
+        rightCurtain.style.transform = 'translateX(0)';
+        setTimeout(() => {
+            window.location.href = 'https://payapplite.com/l/asfCnZ';
+        }, 1000);
+    });
 });
